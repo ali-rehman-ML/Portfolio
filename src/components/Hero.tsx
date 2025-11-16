@@ -1,7 +1,11 @@
 import { Button } from "./ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-export function Hero() {
+interface HeroProps {
+  onNavigate: (page: string) => void;
+}
+
+export function Hero({ onNavigate }: HeroProps) {
   const scrollToSection = (id: string) => {
     document
       .getElementById(id)
@@ -90,6 +94,7 @@ export function Hero() {
             size="lg"
             variant="outline"
             className="bg-transparent border-blue-500/50 text-blue-400 hover:bg-blue-500/10 hover:border-blue-400"
+            onClick={() => onNavigate("contact")}
           >
             Schedule a Demo
           </Button>
